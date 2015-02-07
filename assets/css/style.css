@@ -1,0 +1,40 @@
+ul.title-area
+{
+    margin-left: 50px !important;
+    margin-right: 20px !important;
+}
+
+ul.title-area h1
+{
+    color: white;
+}
+        
+div.middlepart
+{
+    margin-top: 100px;
+    border: solid 1px black;
+    border-radius: 3px;
+}
+        
+div.partpaddings
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.prefix-radius label
+{
+    width: 150px !important;
+}
+
+.prefix-radius input
+{
+    margin-left: 81px !important;
+    width: calc(100% - 81px) !important;
+}
+
+.default label
+{
+    font-size: 16px;
+    font-weight: bold;
+}

@@ -1,0 +1,68 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Профиль::{{header}}</title>
+        <link href="{% static "lib/foundation/stylesheets/app.css" %}" rel="stylesheet">
+        <link href="{% static "css/style.css" %}" rel="stylesheet">
+        {% if type == 'edit' %}
+            <link href="{% static "lib/foundation/bower_components/foundation-datepicker/stylesheets/foundation-datepicker.css" %}" rel="stylesheet">
+        {% endif %}
+        <base href="http://{{home}}/" />
+    </head>
+    <body>
+        <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+            {% if not auth %}
+                {% include "profiles/snippets/loginpanel.html" %}
+            {% else %}
+                {% include "profiles/snippets/logoutpanel.html" %}
+            {% endif %}
+            
+            <section class="top-bar-section">
+            </section>
+        </nav>
+        {% if msgtype != 'none' %}
+            {% include "profiles/snippets/errorlogin.html" %}                 
+        {% endif %}
+        <div class="row">
+            <div class="large-2 columns">
+            </div>
+            <div class="large-8 large-centered columns middlepart">
+            {% block content %}Empty page{% endblock %}
+            </div>
+            <div class="large-2 columns">
+            </div>
+
+        </div>
+    <script src="{% static "lib/foundation/bower_components/foundation/js/vendor/jquery.js" %}"></script>
+    <script src="{% static "lib/foundation/bower_components/foundation/js/vendor/modernizr.js" %}"></script>
+    <script src="{% static "lib/foundation/bower_components/foundation/js/foundation.min.js" %}"></script>
+    {% if type == 'edit' %}
+        <script src="{% static "lib/foundation/bower_components/foundation-datepicker/js/foundation-datepicker.js" %}"></script>
+    {% endif %}
+    <script>
+    $(document).ready(function($){
+        
+        $(document).foundation();
+        
+        $('#login a').click(function(){
+            $('#login').submit();  
+        });
+        {% if type == 'edit' %}
+        
+        $( "#dp" ).fdatepicker({
+        language: 'ru'});
+        
+        $('#editprofile a:not(.secondary)').click(function(){
+            var bdate = Date.parse($('input[name=fbdate]').val())/1000;
+            $('input[name=bdate]').val(bdate);
+            $('#editprofile').submit();  
+        });
+        {% endif %}
+        
+    });
+    </script>
+    </body>
+    
+</html>

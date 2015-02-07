@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="large-2 columns"></div>
+    <div class="large-8  large-centered columns partpaddings">
+        <div class="row">
+            <div class="large-12">
+                <h4>{{data.fname}}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12">
+                <h4>{{data.lname}}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12">
+                <h4>{{data.fbdate}}</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12">
+            {{data.biography|safe}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12">
+            {{data.contacts|safe}}
+            </div>
+        </div>
+        {% if auth %}
+        <div class="row">
+            <div class="large-12">
+                <a href="profiles/edit.html" class="button">Редактировать</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="large-2 columns"></div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="large-2 columns"></div>
+    <div class="large-8  large-centered columns partpaddings">
+        <form id="editprofile" method="POST" action="">
+            <div class="row collapse prefix-radius">
+                <div class="large-2 columns">
+                  <label data-tooltip class="prefix has-tip" title="Укажите своё Имя">Имя:</label>
+                </div>
+                <div class="large-10 columns titlecomment">
+                  <input type="text" name="fname" value="{{data.fname}}" placeholder="Ваше имя..." />
+                </div>
+            </div>
+            <div class="row collapse prefix-radius">
+                <div class="large-2 columns">
+                  <label data-tooltip class="prefix has-tip" title="Укажите свою Фамилию">Фамилия:</label>
+                </div>
+                <div class="large-10 columns titlecomment">
+                  <input type="text" name="lname" value="{{data.lname}}" placeholder="Ваша фамилия..." />
+                </div>
+            </div>
+            <div class="row collapse prefix-radius">
+                <div class="large-2 columns">
+                  <label data-tooltip class="prefix has-tip" title="Укажите свою дату рождения">Дата рождения:</label>
+                </div>
+                <div class="large-10 columns titlecomment">
+                  <input id="dp" type="text" name="fbdate" value="{{data.fbdate}}" placeholder="Ваша дата рождения..." />
+                </div>
+            </div>
+            <div class="row default">
+                <div class="large-12 columns">
+                    <label>Биография:</label>
+                    <textarea name="biography">{{data.biography}}</textarea>
+                </div>
+            </div>
+            <div class="row default">
+                <div class="large-12 columns">
+                    <label>Контакты:</label>
+                    <textarea name="contacts">{{data.contacts}}</textarea>
+                </div>
+            </div>
+            <input type="hidden" name="bdate" value="">
+            <input type="hidden" name="userid" value="{{data.userid}}">
+            <div class="row">
+                <div class="large-6 columns">
+                    <a href="javascript:void(0);" class="button">Сохранить</a>
+                </div>
+                <div class="large-6 columns">
+                    <a href="profiles/show.html" class="button secondary">Просмотр</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="large-2 columns"></div>
+</div>
+
+{% endblock %}
